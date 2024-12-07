@@ -24,19 +24,24 @@
     </style>
 </head>
 <body>
-    <h1>Mon Wiki Interactif</h1>
+    <h1>Trajet minage</h1>
     <p>Cliquez sur les boutons ci-dessous pour copier du texte dans le presse-papiers :</p>
 
+    <button class="button" onclick="copyToClipboard('/travel -2 -5')">Mine -2 -5</button><br />
+    <button class="button" onclick="copyToClipboard('/travel 0 -3')">Mine 4 28</button><br />
+    <button class="button" onclick="copyToClipboard('/travel -2 4')">Mine 4 28</button><br />
+    <button class="button" onclick="copyToClipboard('/travel -3 9')">Mine 4 28</button><br />
+    <button class="button" onclick="copyToClipboard('/travel 5 19')">Mine 4 28</button><br />
     <button class="button" onclick="copyToClipboard('/travel 2 18')">Mine 4 28</button>
-    <button class="button" onclick="copyToClipboard('Texte à copier 2')">Copier "Texte à copier 2"</button>
-    <button class="button" onclick="copyToClipboard('Voici un autre exemple de texte')">Copier "Autre exemple"</button>
 
+    <p>Mine Brakmar</p>
+    <button class="button" onclick="copyToClipboard('/travel -28 28')">Mine 4 28</button>
     <script>
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
                 alert(`Texte copié : "${text}"`);
             }).catch(err => {
-                alert('Échec de la copie');
+               // alert('Échec de la copie');
             });
         }
     </script>
