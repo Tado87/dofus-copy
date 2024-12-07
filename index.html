@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wiki Copy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mon Wiki Interactif</h1>
+    <p>Cliquez sur les boutons ci-dessous pour copier du texte dans le presse-papiers :</p>
+
+    <button class="button" onclick="copyToClipboard('/travel 2 18')">Mine 4 28</button>
+    <button class="button" onclick="copyToClipboard('Texte à copier 2')">Copier "Texte à copier 2"</button>
+    <button class="button" onclick="copyToClipboard('Voici un autre exemple de texte')">Copier "Autre exemple"</button>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert(`Texte copié : "${text}"`);
+            }).catch(err => {
+                alert('Échec de la copie');
+            });
+        }
+    </script>
+</body>
+</html>
