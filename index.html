@@ -1,62 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wiki Copy</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-        line-height: 1.6;
-        background-color: #121212; /* Fond sombre */
-        color: #e0e0e0; /* Texte clair */
-    }
-    
-    .button {
-        display: inline-block;
-        padding: 10px 20px;
-        margin: 10px 0;
-        background-color: #007bff; /* Bleu lumineux pour le bouton */
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    
-    .button:hover {
-        background-color: #0056b3; /* Bleu foncé au survol */
-    }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #121212; /* Fond sombre */
+            color: #e0e0e0; /* Texte clair */
+        }
 
-    /* Pour les liens */
-    a {
-        color: #1e90ff; /* Bleu clair pour les liens */
-        text-decoration: none;
-    }
+        h1, h2 {
+            color: #ffffff;
+        }
 
-    a:hover {
-        text-decoration: underline;
-    }
-</style>
+        .timeline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #555;
+            z-index: -1;
+        }
+
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .timeline-item button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 14px;
+            text-align: center;
+            width: 60px;
+            height: 60px;
+        }
+
+        .timeline-item button:hover {
+            background-color: #0056b3;
+        }
+
+        .timeline-item span {
+            margin-top: 8px;
+            color: #e0e0e0;
+        }
+
+        .timeline-item.active button {
+            background-color: #28a745;
+        }
+
+        .timeline-item.active span {
+            color: #28a745;
+        }
+
+    </style>
 </head>
 <body>
     <h1>Trajet minage</h1>
-    <p>Cliquez sur les boutons ci-dessous pour copier du texte dans le presse-papiers :</p>
+    <p>Cliquez sur les étapes ci-dessous pour copier du texte dans le presse-papiers :</p>
 
-    <button class="button" onclick="copyToClipboard('/travel -2 -5')">Mine Larve</button><br />
-    <button class="button" onclick="copyToClipboard('/travel 0 -3')">Mine Zaap Village</button><br />
-    <button class="button" onclick="copyToClipboard('/travel -2 4')">Mine Forgelance</button><br />
-    <button class="button" onclick="copyToClipboard('/travel -3 9')">Mine Saddida</button><br />
-    <button class="button" onclick="copyToClipboard('/travel 5 19')">Mine Hérale</button><br />
-    <button class="button" onclick="copyToClipboard('/travel 4 28')">Mine </button>
+    <h2>Mineage principale</h2>
+    <div class="timeline">
+        <div class="timeline-item" onclick="copyToClipboard('/travel -2 -5')">
+            <button>💀</button>
+            <span>Mine Larve</span>
+        </div>
+        <div class="timeline-item" onclick="copyToClipboard('/travel 0 -3')">
+            <button>🧭</button>
+            <span>Mine Zaap Village</span>
+        </div>
+        <div class="timeline-item" onclick="copyToClipboard('/travel -2 4')">
+            <button>⚒️</button>
+            <span>Mine Forgelance</span>
+        </div>
+        <div class="timeline-item" onclick="copyToClipboard('/travel -3 9')">
+            <button>⛏️</button>
+            <span>Mine Saddida</span>
+        </div>
+        <div class="timeline-item" onclick="copyToClipboard('/travel 5 19')">
+            <button>🌟</button>
+            <span>Mine Hérale</span>
+        </div>
+        <div class="timeline-item" onclick="copyToClipboard('/travel 4 28')">
+            <button>⚡</button>
+            <span>Mine Finale</span>
+        </div>
+    </div>
 
-    <p>Mine Brakmar</p>
-    <button class="button" onclick="copyToClipboard('/travel -28 28')">Mine -28 28</button>
+    <h2>Mine Brakmar</h2>
+    <div class="timeline">
+        <div class="timeline-item" onclick="copyToClipboard('/travel -28 28')">
+            <button>🔥</button>
+            <span>Mine -28 28</span>
+        </div>
+    </div>
+
     <script>
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
-              //  alert(`Texte copié : "${text}"`);
+                // Vous pouvez activer une alerte ou autre feedback si nécessaire
+                // alert(`Texte copié : "${text}"`);
             }).catch(err => {
-               // alert('Échec de la copie');
+                // alert('Échec de la copie');
             });
         }
     </script>
