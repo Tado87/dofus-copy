@@ -1,0 +1,149 @@
+/* Corps principal */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Fond sombre global */
+    color: #e0e0e0; /* Texte clair */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Conteneur principal */
+.container {
+    padding: 20px;
+}
+
+/* Titres principaux */
+h1, h2 {
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.arrow-icon {
+    margin-left: 10px;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.open .arrow-icon {
+    transform: rotate(180deg);
+}
+
+/* Ligne de temps horizontale */
+.timeline {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px; /* Espace entre les éléments */
+    margin-top: 20px;
+    position: relative;
+    padding: 10px 0;
+    border-top: 3px solid #444; /* Ligne horizontale sombre */
+}
+
+.timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: -7px; /* Aligner avec la ligne */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #555; /* Point sombre */
+    z-index: 1;
+}
+
+.timeline-item button {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 2px solid #444;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 16px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+    margin-top: 20px; /* Décalage par rapport au cercle */
+}
+
+.timeline-item button:hover {
+    background-color: #555;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* État actif (lorsque le bouton est cliqué) */
+.timeline-item button:active,
+.timeline-item button.active {
+    background-color: #007bff; /* Couleur bleue lumineuse */
+    color: #ffffff;
+    border-color: #007bff;
+    box-shadow: 0 0 15px #007bff; /* Effet lumineux */
+    transform: scale(1.2); /* Légère expansion */
+    animation: pulse 0.5s ease-out; /* Animation pulsante */
+}
+
+/* Animation pulsante */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 5px #007bff;
+    }
+    50% {
+        box-shadow: 0 0 15px #007bff;
+    }
+    100% {
+        box-shadow: 0 0 5px #007bff;
+    }
+}
+
+.timeline-item span {
+    margin-top: 8px;
+    color: #e0e0e0;
+    font-size: 14px;
+}
+
+.timeline-item:hover span {
+    color: #ffffff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Contenu des sections */
+.content {
+    display: none;
+    padding: 15px;
+    margin-top: 10px;
+    background-color: #252525;
+    border-radius: 10px;
+}
+
+.content.open {
+    display: block;
+    animation: slideDown 0.5s ease-out;
+}
+
+/* Animation pour le volet */
+@keyframes slideDown {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+    to {
+        max-height: 1000px;
+        opacity: 1;
+    }
+}
