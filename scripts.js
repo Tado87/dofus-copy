@@ -35,7 +35,7 @@ async function fetchAlmanax() {
                     <h2>${new Date(day.date).toLocaleDateString('fr-FR')}</h2>
                     <p><strong>Bonus :</strong> ${day.bonus.bonus} - ${day.bonus.description}</p>
                     <p><strong>Offrande :</strong> ${day.item_quantity} x 
-                        <a href="${day.item_url}" target="_blank">${day.item_name}</a>
+                        ${day.item_name}
                     </p>
                     <p><strong>Kamas reçus :</strong> ${day.reward_kamas}</p>
                     <img src="${day.item.image_url}" alt="${day.item_name}">
