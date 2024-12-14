@@ -1,30 +1,25 @@
-// Fonction pour copier dans le presse-papiers
-function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(() => {
-        console.log(`Texte copié : "${text}"`);
-    }).catch(err => {
-        console.error('Échec de la copie', err);
-    });
+// Fonction pour copier dans le presse-papiers et activer un bouton
+function copyToClipboard(text, button) {
+    navigator.clipboard.writeText(text)
+        .then(() => setActiveButton(button))
+        .catch(err => console.error('Erreur lors de la copie :', err));
 }
 
-// Fonction pour afficher ou masquer une section
+// Fonction pour activer visuellement un bouton
+function setActiveButton(button) {
+    document.querySelectorAll('.timeline-item button').forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+}
+
+// Fonction pour dérouler une section
 function toggleSection(sectionId) {
-    var section = document.getElementById(sectionId);
-    var arrow = section.previousElementSibling.querySelector('.arrow-icon');
+    const section = document.getElementById(sectionId);
     section.classList.toggle('open');
+    const arrow = section.previousElementSibling.querySelector('.arrow-icon');
     arrow.classList.toggle('open');
 }
 
-document.querySelectorAll('.timeline-item button').forEach(button => {
-    button.addEventListener('click', () => {
-        // Supprimez la classe active des autres boutons
-        document.querySelectorAll('.timeline-item button').forEach(btn => btn.classList.remove('active'));
-
-        // Ajoutez la classe active au bouton cliqué
-        button.classList.add('active');
-    });
-});
-
+// Charger les données de l'Almanax
 async function fetchAlmanax() {
     const container = document.getElementById('almanax-container');
     container.innerHTML = '';
@@ -34,8 +29,7 @@ async function fetchAlmanax() {
         const data = await response.json();
 
         if (data && data.data) {
-            const sortedData = data.data.sort((a, b) => new Date(a.date) - new Date(b.date));
-            sortedData.forEach(day => {
+            data.data.forEach(day => {
                 const dayElement = document.createElement('div');
                 dayElement.innerHTML = `
                     <h2>${new Date(day.date).toLocaleDateString('fr-FR')}</h2>
@@ -44,7 +38,7 @@ async function fetchAlmanax() {
                         <a href="${day.item_url}" target="_blank">${day.item_name}</a>
                     </p>
                     <p><strong>Kamas reçus :</strong> ${day.reward_kamas}</p>
-                    <img src="${day.item.image_url}" alt="${day.item_name}" style="width: 80px; height: auto; margin-top: 10px;">
+                    <img src="${day.item.image_url}" alt="${day.item_name}">
                 `;
                 container.appendChild(dayElement);
             });
@@ -53,7 +47,6 @@ async function fetchAlmanax() {
         }
     } catch (error) {
         console.error('Erreur lors de la récupération des données de l\'Almanax :', error);
-        container.innerHTML = '<p>Erreur lors du chargement des données.</p>';
     }
 }
 

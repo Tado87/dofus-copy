@@ -30,45 +30,38 @@
 
         .section-container {
             margin-bottom: 20px;
-            padding: 20px;
             background-color: #222;
             border-radius: 10px;
             border: 1px solid #444;
-        }
-
-        .almanax-sidebar {
-            width: 30%;
-            padding: 20px;
-            box-sizing: border-box;
-            background-color: #222;
-            border-left: 1px solid #444;
-        }
-
-        .container h1 {
-            margin-top: 0;
-            cursor: pointer;
-        }
-
-        .content {
-            display: none;
-        }
-
-        .content.open {
-            display: block;
+            padding: 10px;
         }
 
         .timeline {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 10px 0;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 20px;
+            padding: 10px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #555;
+            z-index: -1;
         }
 
         .timeline-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 100px;
+            position: relative;
+            margin: 0 20px;
         }
 
         .timeline-item button {
@@ -79,11 +72,64 @@
             background-color: #555;
             color: white;
             font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .timeline-item button:hover {
+            background-color: #777;
+        }
+
+        .timeline-item button.active {
+            background-color: #28a745;
         }
 
         .timeline-item span {
             margin-top: 5px;
             text-align: center;
+        }
+
+        h1.section-title {
+            font-size: 20px;
+            color: #00bfff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .arrow-icon {
+            transition: transform 0.3s;
+        }
+
+        .arrow-icon.open {
+            transform: rotate(180deg);
+        }
+
+        .content {
+            display: none;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #333;
+            border-radius: 8px;
+        }
+
+        .content.open {
+            display: block;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: #28a745;
+            margin-top: 10px;
+        }
+
+        .almanax-sidebar {
+            width: 30%;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #222;
+            border-left: 1px solid #444;
         }
 
         .almanax-sidebar h1 {
@@ -97,14 +143,10 @@
             border-radius: 5px;
         }
 
-        h1.section-title {
-            font-size: 20px;
-            color: #00bfff;
-        }
-
-        h2 {
-            font-size: 18px;
-            color: #28a745;
+        .almanax-sidebar img {
+            max-width: 100px;
+            height: auto;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -113,7 +155,6 @@
         <!-- Colonne principale -->
         <div class="main-content">
             <!-- Minage -->
-            <h1>Trajet </h1>
             <div class="section-container">
                 <h1 onclick="toggleSection('minage')" class="section-title">
                     Minage
@@ -122,35 +163,35 @@
                 <div id="minage" class="content">
                     <h2>Mineage principale</h2>
                     <div class="timeline">
-                        <div class="timeline-item" onclick="copyToClipboard('/travel -2 -5')">
-                            <button>🐛</button>
+                        <div class="timeline-item">
+                            <button onclick="copyToClipboard('/travel -2 -5', this)">🐛</button>
                             <span>Larve</span>
                         </div>
-                        <div class="timeline-item" onclick="copyToClipboard('/travel 0 -3')">
-                            <button>🧭</button>
+                        <div class="timeline-item">
+                            <button onclick="copyToClipboard('/travel 0 -3', this)">🧭</button>
                             <span>Zaap Village</span>
                         </div>
-                        <div class="timeline-item" onclick="copyToClipboard('/travel -2 4')">
-                            <button>⚒️</button>
+                        <div class="timeline-item">
+                            <button onclick="copyToClipboard('/travel -2 4', this)">⚒️</button>
                             <span>Forgelance</span>
                         </div>
-                        <div class="timeline-item" onclick="copyToClipboard('/travel -3 9')">
-                            <button>🌳</button>
+                        <div class="timeline-item">
+                            <button onclick="copyToClipboard('/travel -3 9', this)">🌳</button>
                             <span>Saddida</span>
                         </div>
-                        <div class="timeline-item" onclick="copyToClipboard('/travel 5 19')">
-                            <button>⭐</button>
+                        <div class="timeline-item">
+                            <button onclick="copyToClipboard('/travel 5 19', this)">⭐</button>
                             <span>Hérale</span>
                         </div>
-                        <div class="timeline-item" onclick="copyToClipboard('/travel 4 28')">
-                            <button>🍃</button>
+                        <div class="timeline-item">
+                            <button onclick="copyToClipboard('/travel 4 28', this)">🍃</button>
                             <span>Sacarafeuille</span>
                         </div>
                     </div>
                     <h2>Mine Brakmar</h2>
                     <div class="timeline">
-                        <div class="timeline-item" onclick="copyToClipboard('/travel -28 28')">
-                            <button>🔥</button>
+                        <div class="timeline-item">
+                            <button onclick="copyToClipboard('/travel -28 28', this)">🔥</button>
                             <span>Mine -28 28</span>
                         </div>
                     </div>
@@ -166,43 +207,43 @@
                 <div id="paysan" class="content">
                     <h2>Lin</h2>
                     <div class="timeline">
-                        <div class="timeline-item" onclick="copyToClipboard('/travel 7 4')">
-                            <button>🌾</button>
+                        <div class="timeline-item">
+                            <button onclick="copyToClipboard('/travel 7 4', this)">🌾</button>
                             <span>Pos 1</span>
                         </div>
-                        <div class="timeline-item" onclick="copyToClipboard('/travel 9 6')">
-                            <button>🌾</button>
+                        <div class="timeline-item">
+                            <button onclick="copyToClipboard('/travel 9 6', this)">🌾</button>
                             <span>Pos 2</span>
                         </div>
-                        <div class="timeline-item" onclick="copyToClipboard('/travel 9 9')">
-                            <button>🌾</button>
+                        <div class="timeline-item">
+                            <button onclick="copyToClipboard('/travel 9 9', this)">🌾</button>
                             <span>Pos 3</span>
                         </div>
-                        <div class="timeline-item" onclick="copyToClipboard('/travel 7 9')">
-                            <button>🌾</button>
+                        <div class="timeline-item">
+                            <button onclick="copyToClipboard('/travel 7 9', this)">🌾</button>
                             <span>Pos 4</span>
                         </div>
                     </div>
                     <h2>Malte</h2>
                     <div class="timeline">
-                        <div class="timeline-item" onclick="copyToClipboard('/travel 8 6')">
-                            <button>🍺</button>
+                        <div class="timeline-item">
+                            <button onclick="copyToClipboard('/travel 8 6', this)">🍺</button>
                             <span>Pos 1</span>
                         </div>
-                        <div class="timeline-item" onclick="copyToClipboard('/travel 8 5')">
-                            <button>🍺</button>
+                        <div class="timeline-item">
+                            <button onclick="copyToClipboard('/travel 8 5', this)">🍺</button>
                             <span>Pos 2</span>
                         </div>
-                        <div class="timeline-item" onclick="copyToClipboard('/travel 9 5')">
-                            <button>🍺</button>
+                        <div class="timeline-item">
+                            <button onclick="copyToClipboard('/travel 9 5', this)">🍺</button>
                             <span>Pos 3</span>
                         </div>
-                        <div class="timeline-item" onclick="copyToClipboard('/travel 10 7')">
-                            <button>🍺</button>
+                        <div class="timeline-item">
+                            <button onclick="copyToClipboard('/travel 10 7', this)">🍺</button>
                             <span>Pos 4</span>
                         </div>
-                        <div class="timeline-item" onclick="copyToClipboard('/travel 9 8')">
-                            <button>🍺</button>
+                        <div class="timeline-item">
+                            <button onclick="copyToClipboard('/travel 9 8', this)">🍺</button>
                             <span>Pos 5</span>
                         </div>
                     </div>
@@ -218,8 +259,8 @@
                 <div id="bucheron" class="content">
                     <h2>Oliviolet</h2>
                     <div class="timeline">
-                        <div class="timeline-item" onclick="copyToClipboard('/travel -22 37')">
-                            <button>🪵</button>
+                        <div class="timeline-item">
+                            <button onclick="copyToClipboard('/travel -22 37', this)">🪵</button>
                             <span>Brakmar</span>
                         </div>
                     </div>
@@ -229,12 +270,13 @@
 
         <!-- Colonne Almanax -->
         <div class="almanax-sidebar">
-            <h1>Almanax </h1>
+            <h1>Almanax</h1>
             <div id="almanax-container">
                 <p>Chargement des données...</p>
             </div>
         </div>
     </div>
+
     <script src="scripts.js"></script>
 </body>
 </html>
