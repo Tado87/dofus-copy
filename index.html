@@ -3,139 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiki Copy - Généré</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Wiki Copy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        .main-container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px;
+        }
+
+        .main-content {
+            width: 70%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .section-container {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 10px;
+            border: 1px solid #444;
+        }
+
+        .almanax-sidebar {
+            width: 30%;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #222;
+            border-left: 1px solid #444;
+        }
+
+        .container h1 {
+            margin-top: 0;
+            cursor: pointer;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .content.open {
+            display: block;
+        }
+
+        .timeline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100px;
+        }
+
+        .timeline-item button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background-color: #555;
+            color: white;
+            font-size: 16px;
+        }
+
+        .timeline-item span {
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .almanax-sidebar h1 {
+            color: #28a745;
+        }
+
+        .almanax-sidebar div {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        h1.section-title {
+            font-size: 20px;
+            color: #00bfff;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: #28a745;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-
-        <h1 onclick="toggleSection('minage')" class="section-title">
-            Minage
-            <span class="arrow-icon">▼</span>
-        </h1>
-        <div id="minage" class="content">
-
-            <h2>Mineage principale</h2>
-            <div class="timeline">
-
-                <div class="timeline-item" onclick="copyToClipboard('/travel -2 -5')">
-                    <button>🐛</button>
-                    <span>Larve</span>
-                </div>
-
-                <div class="timeline-item" onclick="copyToClipboard('/travel 0 -3')">
-                    <button>🧭</button>
-                    <span>Zaap Village</span>
-                </div>
-
-                <div class="timeline-item" onclick="copyToClipboard('/travel -2 4')">
-                    <button>⚒️</button>
-                    <span>Forgelance</span>
-                </div>
-
-                <div class="timeline-item" onclick="copyToClipboard('/travel -3 9')">
-                    <button>🌳</button>
-                    <span>Saddida</span>
-                </div>
-
-                <div class="timeline-item" onclick="copyToClipboard('/travel 5 19')">
-                    <button>⭐</button>
-                    <span>Hérale</span>
-                </div>
-
-                <div class="timeline-item" onclick="copyToClipboard('/travel 4 28')">
-                    <button>🍃</button>
-                    <span>Sacarafeuille</span>
-                </div>
-            </div>
-
-            <h2>Mine Brakmar</h2>
-            <div class="timeline">
-
-                <div class="timeline-item" onclick="copyToClipboard('/travel -28 28')">
-                    <button>🔥</button>
-                    <span>Mine -28 28</span>
-                </div>
-            </div>
-        </div>
-
-        <h1 onclick="toggleSection('paysan')" class="section-title">
-            Paysan
-            <span class="arrow-icon">▼</span>
-        </h1>
-        <div id="paysan" class="content">
-
-            <h2>Lin</h2>
-            <div class="timeline">
-
-                <div class="timeline-item" onclick="copyToClipboard('/travel 7 4')">
-                    <button>🌾</button>
-                    <span>Pos 1</span>
-                </div>
-
-                <div class="timeline-item" onclick="copyToClipboard('/travel 9 6')">
-                    <button>🌾</button>
-                    <span>Pos 2</span>
-                </div>
-
-                <div class="timeline-item" onclick="copyToClipboard('/travel 9 9')">
-                    <button>🌾</button>
-                    <span>Pos 3</span>
-                </div>
-
-                <div class="timeline-item" onclick="copyToClipboard('/travel 7 9')">
-                    <button>🌾</button>
-                    <span>Pos 4</span>
+    <div class="main-container">
+        <!-- Colonne principale -->
+        <div class="main-content">
+            <!-- Minage -->
+            <h1>Trajet </h1>
+            <div class="section-container">
+                <h1 onclick="toggleSection('minage')" class="section-title">
+                    Minage
+                    <span class="arrow-icon">▼</span>
+                </h1>
+                <div id="minage" class="content">
+                    <h2>Mineage principale</h2>
+                    <div class="timeline">
+                        <div class="timeline-item" onclick="copyToClipboard('/travel -2 -5')">
+                            <button>🐛</button>
+                            <span>Larve</span>
+                        </div>
+                        <div class="timeline-item" onclick="copyToClipboard('/travel 0 -3')">
+                            <button>🧭</button>
+                            <span>Zaap Village</span>
+                        </div>
+                        <div class="timeline-item" onclick="copyToClipboard('/travel -2 4')">
+                            <button>⚒️</button>
+                            <span>Forgelance</span>
+                        </div>
+                        <div class="timeline-item" onclick="copyToClipboard('/travel -3 9')">
+                            <button>🌳</button>
+                            <span>Saddida</span>
+                        </div>
+                        <div class="timeline-item" onclick="copyToClipboard('/travel 5 19')">
+                            <button>⭐</button>
+                            <span>Hérale</span>
+                        </div>
+                        <div class="timeline-item" onclick="copyToClipboard('/travel 4 28')">
+                            <button>🍃</button>
+                            <span>Sacarafeuille</span>
+                        </div>
+                    </div>
+                    <h2>Mine Brakmar</h2>
+                    <div class="timeline">
+                        <div class="timeline-item" onclick="copyToClipboard('/travel -28 28')">
+                            <button>🔥</button>
+                            <span>Mine -28 28</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <h2>Malte</h2>
-            <div class="timeline">
-
-                <div class="timeline-item" onclick="copyToClipboard('/travel 8 6')">
-                    <button>🍺</button>
-                    <span>Pos 1</span>
-                </div>
-
-                <div class="timeline-item" onclick="copyToClipboard('/travel 8 5')">
-                    <button>🍺</button>
-                    <span>Pos 2</span>
-                </div>
-
-                <div class="timeline-item" onclick="copyToClipboard('/travel 9 5')">
-                    <button>🍺</button>
-                    <span>Pos 3</span>
-                </div>
-
-                <div class="timeline-item" onclick="copyToClipboard('/travel 10 7')">
-                    <button>🍺</button>
-                    <span>Pos 4</span>
-                </div>
-
-                <div class="timeline-item" onclick="copyToClipboard('/travel 9 8')">
-                    <button>🍺</button>
-                    <span>Pos 5</span>
+            <!-- Paysan -->
+            <div class="section-container">
+                <h1 onclick="toggleSection('paysan')" class="section-title">
+                    Paysan
+                    <span class="arrow-icon">▼</span>
+                </h1>
+                <div id="paysan" class="content">
+                    <h2>Lin</h2>
+                    <div class="timeline">
+                        <div class="timeline-item" onclick="copyToClipboard('/travel 7 4')">
+                            <button>🌾</button>
+                            <span>Pos 1</span>
+                        </div>
+                        <div class="timeline-item" onclick="copyToClipboard('/travel 9 6')">
+                            <button>🌾</button>
+                            <span>Pos 2</span>
+                        </div>
+                        <div class="timeline-item" onclick="copyToClipboard('/travel 9 9')">
+                            <button>🌾</button>
+                            <span>Pos 3</span>
+                        </div>
+                        <div class="timeline-item" onclick="copyToClipboard('/travel 7 9')">
+                            <button>🌾</button>
+                            <span>Pos 4</span>
+                        </div>
+                    </div>
+                    <h2>Malte</h2>
+                    <div class="timeline">
+                        <div class="timeline-item" onclick="copyToClipboard('/travel 8 6')">
+                            <button>🍺</button>
+                            <span>Pos 1</span>
+                        </div>
+                        <div class="timeline-item" onclick="copyToClipboard('/travel 8 5')">
+                            <button>🍺</button>
+                            <span>Pos 2</span>
+                        </div>
+                        <div class="timeline-item" onclick="copyToClipboard('/travel 9 5')">
+                            <button>🍺</button>
+                            <span>Pos 3</span>
+                        </div>
+                        <div class="timeline-item" onclick="copyToClipboard('/travel 10 7')">
+                            <button>🍺</button>
+                            <span>Pos 4</span>
+                        </div>
+                        <div class="timeline-item" onclick="copyToClipboard('/travel 9 8')">
+                            <button>🍺</button>
+                            <span>Pos 5</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <h1 onclick="toggleSection('bucheron')" class="section-title">
-            Bucheron
-            <span class="arrow-icon">▼</span>
-        </h1>
-        <div id="bucheron" class="content">
-
-            <h2>Oliviolet</h2>
-            <div class="timeline">
-
-                <div class="timeline-item" onclick="copyToClipboard('/travel -22 37')">
-                    <button>🪵</button>
-                    <span>Brakmar</span>
+            <!-- Bucheron -->
+            <div class="section-container">
+                <h1 onclick="toggleSection('bucheron')" class="section-title">
+                    Bucheron
+                    <span class="arrow-icon">▼</span>
+                </h1>
+                <div id="bucheron" class="content">
+                    <h2>Oliviolet</h2>
+                    <div class="timeline">
+                        <div class="timeline-item" onclick="copyToClipboard('/travel -22 37')">
+                            <button>🪵</button>
+                            <span>Brakmar</span>
+                        </div>
+                    </div>
                 </div>
-
             </div>
         </div>
 
+        <!-- Colonne Almanax -->
+        <div class="almanax-sidebar">
+            <h1>Almanax </h1>
+            <div id="almanax-container">
+                <p>Chargement des données...</p>
+            </div>
+        </div>
     </div>
     <script src="scripts.js"></script>
 </body>
