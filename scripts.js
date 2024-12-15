@@ -1,23 +1,71 @@
-// Fonction pour copier dans le presse-papiers et activer un bouton
-function copyToClipboard(text, button) {
-    navigator.clipboard.writeText(text)
-        .then(() => setActiveButton(button))
-        .catch(err => console.error('Erreur lors de la copie :', err));
-}
+$(document).ready(function () {
+    console.log("Début du chargement des trajets...");
 
-// Fonction pour activer visuellement un bouton
-function setActiveButton(button) {
-    document.querySelectorAll('.timeline-item button').forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
-}
+    // Chargement du fichier JSON
+    $.getJSON("trajet.json", function (data) {
+        console.log("Données JSON chargées :", data);
+        renderTrajets(data.trajets);
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+        console.error("Erreur lors du chargement des trajets :", textStatus, errorThrown);
+    });
 
-// Fonction pour dérouler une section
-function toggleSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    section.classList.toggle('open');
-    const arrow = section.previousElementSibling.querySelector('.arrow-icon');
-    arrow.classList.toggle('open');
-}
+    function renderTrajets(trajets) {
+        const $container = $("#trajet-sections");
+
+        trajets.forEach(trajet => {
+            const $section = $("<div>").addClass("section-container");
+
+            // Titre principal
+            const $title = $("<h2>")
+                .addClass("section-title")
+                .text(trajet.profession)
+                .append($("<span>").addClass("arrow-icon").text("▼"))
+                .on("click", function () {
+                    $(this).next(".content").slideToggle();
+                    $(this).find(".arrow-icon").toggleClass("open");
+                });
+
+            const $content = $("<div>").addClass("content");
+
+            trajet.sections.forEach(section => {
+                const $sectionTitle = $("<h3>").text(section.nom);
+                const $timeline = $("<div>").addClass("timeline");
+
+                section.points.forEach(point => {
+                    const $timelineItem = $("<div>").addClass("timeline-item");
+
+                    const $button = $("<button>")
+                        .text(point.icone)
+                        .on("click", function () {
+                            // Retirer la classe 'active' de tous les boutons dans cette timeline
+                            $timeline.find("button").removeClass("active");
+                            // Ajouter 'active' au bouton cliqué
+                            $(this).addClass("active");
+                            // Copier la commande dans le presse-papiers
+                            copyToClipboard(point.commande);
+                        });
+
+                    const $label = $("<span>").text(point.nom);
+
+                    $timelineItem.append($button, $label);
+                    $timeline.append($timelineItem);
+                });
+
+                $content.append($sectionTitle, $timeline);
+            });
+
+            $section.append($title, $content);
+            $container.append($section);
+        });
+    }
+
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            console.log(`Commande copiée : ${text}`);
+        });
+    }
+});
+
 
 // Charger les données de l'Almanax
 async function fetchAlmanax() {
@@ -29,7 +77,10 @@ async function fetchAlmanax() {
         const data = await response.json();
 
         if (data && data.data) {
-            data.data.forEach(day => {
+            // Trier les données par date du plus ancien au plus récent
+            const sortedData = data.data.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+            sortedData.forEach(day => {
                 const dayElement = document.createElement('div');
                 dayElement.innerHTML = `
                     <h2>${new Date(day.date).toLocaleDateString('fr-FR')}</h2>
@@ -49,5 +100,7 @@ async function fetchAlmanax() {
         console.error('Erreur lors de la récupération des données de l\'Almanax :', error);
     }
 }
+
+
 
 fetchAlmanax();

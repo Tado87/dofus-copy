@@ -1,0 +1,146 @@
+{
+  "trajets": [
+    {
+      "profession": "Minage",
+      "sections": [
+        {
+          "nom": "Mineage principale",
+          "points": [
+            {
+              "nom": "Larve",
+              "coordonnees": [-2, -5],
+              "icone": "🐛",
+              "commande": "/travel -2 -5"
+            },
+            {
+              "nom": "Zaap Village",
+              "coordonnees": [0, -3],
+              "icone": "🧭",
+              "commande": "/travel 0 -3"
+            },
+            {
+              "nom": "Forgelance",
+              "coordonnees": [-2, 4],
+              "icone": "⚒️",
+              "commande": "/travel -2 4"
+            },
+            {
+              "nom": "Saddida",
+              "coordonnees": [-3, 9],
+              "icone": "🌳",
+              "commande": "/travel -3 9"
+            },
+            {
+              "nom": "Hérale",
+              "coordonnees": [5, 19],
+              "icone": "⭐",
+              "commande": "/travel 5 19"
+            },
+            {
+              "nom": "Sacarafeuille",
+              "coordonnees": [4, 28],
+              "icone": "🍃",
+              "commande": "/travel 4 28"
+            }
+          ]
+        },
+        {
+          "nom": "Mine Brakmar",
+          "points": [
+            {
+              "nom": "Mine -28 28",
+              "coordonnees": [-28, 28],
+              "icone": "🔥",
+              "commande": "/travel -28 28"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "profession": "Paysan",
+      "sections": [
+        {
+          "nom": "Lin",
+          "points": [
+            {
+              "nom": "Pos 1",
+              "coordonnees": [7, 4],
+              "icone": "🌾",
+              "commande": "/travel 7 4"
+            },
+            {
+              "nom": "Pos 2",
+              "coordonnees": [9, 6],
+              "icone": "🌾",
+              "commande": "/travel 9 6"
+            },
+            {
+              "nom": "Pos 3",
+              "coordonnees": [9, 9],
+              "icone": "🌾",
+              "commande": "/travel 9 9"
+            },
+            {
+              "nom": "Pos 4",
+              "coordonnees": [7, 9],
+              "icone": "🌾",
+              "commande": "/travel 7 9"
+            }
+          ]
+        },
+        {
+          "nom": "Malte",
+          "points": [
+            {
+              "nom": "Pos 1",
+              "coordonnees": [8, 6],
+              "icone": "🍺",
+              "commande": "/travel 8 6"
+            },
+            {
+              "nom": "Pos 2",
+              "coordonnees": [8, 5],
+              "icone": "🍺",
+              "commande": "/travel 8 5"
+            },
+            {
+              "nom": "Pos 3",
+              "coordonnees": [9, 5],
+              "icone": "🍺",
+              "commande": "/travel 9 5"
+            },
+            {
+              "nom": "Pos 4",
+              "coordonnees": [10, 7],
+              "icone": "🍺",
+              "commande": "/travel 10 7"
+            },
+            {
+              "nom": "Pos 5",
+              "coordonnees": [9, 8],
+              "icone": "🍺",
+              "commande": "/travel 9 8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "profession": "Bûcheron",
+      "sections": [
+        {
+          "nom": "Oliviolet",
+          "points": [
+            {
+              "nom": "Brakmar",
+              "coordonnees": [-22, 37],
+              "icone": "🪵",
+              "commande": "/travel -22 37"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

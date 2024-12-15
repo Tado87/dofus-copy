@@ -3,272 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiki Copy</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            background-color: #121212;
-            color: #e0e0e0;
-        }
-
-        .main-container {
-            display: flex;
-            width: 100%;
-            max-width: 1200px;
-            margin: 20px;
-        }
-
-        .main-content {
-            width: 70%;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .section-container {
-            margin-bottom: 20px;
-            background-color: #222;
-            border-radius: 10px;
-            border: 1px solid #444;
-            padding: 10px;
-        }
-
-        .timeline {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-            margin-top: 20px;
-            padding: 10px 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background-color: #555;
-            z-index: -1;
-        }
-
-        .timeline-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            margin: 0 20px;
-        }
-
-        .timeline-item button {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            background-color: #555;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .timeline-item button:hover {
-            background-color: #777;
-        }
-
-        .timeline-item button.active {
-            background-color: #28a745;
-        }
-
-        .timeline-item span {
-            margin-top: 5px;
-            text-align: center;
-        }
-
-        h1.section-title {
-            font-size: 20px;
-            color: #00bfff;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .arrow-icon {
-            transition: transform 0.3s;
-        }
-
-        .arrow-icon.open {
-            transform: rotate(180deg);
-        }
-
-        .content {
-            display: none;
-            padding: 10px;
-            margin-top: 10px;
-            background-color: #333;
-            border-radius: 8px;
-        }
-
-        .content.open {
-            display: block;
-        }
-
-        h2 {
-            font-size: 18px;
-            color: #28a745;
-            margin-top: 10px;
-        }
-
-        .almanax-sidebar {
-            width: 30%;
-            padding: 20px;
-            box-sizing: border-box;
-            background-color: #222;
-            border-left: 1px solid #444;
-        }
-
-        .almanax-sidebar h1 {
-            color: #28a745;
-        }
-
-        .almanax-sidebar div {
-            margin-bottom: 20px;
-            padding: 10px;
-            background-color: #333;
-            border-radius: 5px;
-        }
-
-        .almanax-sidebar img {
-            max-width: 100px;
-            height: auto;
-            margin-top: 10px;
-        }
-    </style>
+    <title>Wiki Trajets</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts.js" defer></script>
 </head>
 <body>
     <div class="main-container">
         <!-- Colonne principale -->
         <div class="main-content">
-            <!-- Minage -->
-            <div class="section-container">
-                <h1 onclick="toggleSection('minage')" class="section-title">
-                    Minage
-                    <span class="arrow-icon">▼</span>
-                </h1>
-                <div id="minage" class="content">
-                    <h2>Mineage principale</h2>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <button onclick="copyToClipboard('/travel -2 -5', this)">🐛</button>
-                            <span>Larve</span>
-                        </div>
-                        <div class="timeline-item">
-                            <button onclick="copyToClipboard('/travel 0 -3', this)">🧭</button>
-                            <span>Zaap Village</span>
-                        </div>
-                        <div class="timeline-item">
-                            <button onclick="copyToClipboard('/travel -2 4', this)">⚒️</button>
-                            <span>Forgelance</span>
-                        </div>
-                        <div class="timeline-item">
-                            <button onclick="copyToClipboard('/travel -3 9', this)">🌳</button>
-                            <span>Saddida</span>
-                        </div>
-                        <div class="timeline-item">
-                            <button onclick="copyToClipboard('/travel 5 19', this)">⭐</button>
-                            <span>Hérale</span>
-                        </div>
-                        <div class="timeline-item">
-                            <button onclick="copyToClipboard('/travel 4 28', this)">🍃</button>
-                            <span>Sacarafeuille</span>
-                        </div>
-                    </div>
-                    <h2>Mine Brakmar</h2>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <button onclick="copyToClipboard('/travel -28 28', this)">🔥</button>
-                            <span>Mine -28 28</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Paysan -->
-            <div class="section-container">
-                <h1 onclick="toggleSection('paysan')" class="section-title">
-                    Paysan
-                    <span class="arrow-icon">▼</span>
-                </h1>
-                <div id="paysan" class="content">
-                    <h2>Lin</h2>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <button onclick="copyToClipboard('/travel 7 4', this)">🌾</button>
-                            <span>Pos 1</span>
-                        </div>
-                        <div class="timeline-item">
-                            <button onclick="copyToClipboard('/travel 9 6', this)">🌾</button>
-                            <span>Pos 2</span>
-                        </div>
-                        <div class="timeline-item">
-                            <button onclick="copyToClipboard('/travel 9 9', this)">🌾</button>
-                            <span>Pos 3</span>
-                        </div>
-                        <div class="timeline-item">
-                            <button onclick="copyToClipboard('/travel 7 9', this)">🌾</button>
-                            <span>Pos 4</span>
-                        </div>
-                    </div>
-                    <h2>Malte</h2>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <button onclick="copyToClipboard('/travel 8 6', this)">🍺</button>
-                            <span>Pos 1</span>
-                        </div>
-                        <div class="timeline-item">
-                            <button onclick="copyToClipboard('/travel 8 5', this)">🍺</button>
-                            <span>Pos 2</span>
-                        </div>
-                        <div class="timeline-item">
-                            <button onclick="copyToClipboard('/travel 9 5', this)">🍺</button>
-                            <span>Pos 3</span>
-                        </div>
-                        <div class="timeline-item">
-                            <button onclick="copyToClipboard('/travel 10 7', this)">🍺</button>
-                            <span>Pos 4</span>
-                        </div>
-                        <div class="timeline-item">
-                            <button onclick="copyToClipboard('/travel 9 8', this)">🍺</button>
-                            <span>Pos 5</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bucheron -->
-            <div class="section-container">
-                <h1 onclick="toggleSection('bucheron')" class="section-title">
-                    Bucheron
-                    <span class="arrow-icon">▼</span>
-                </h1>
-                <div id="bucheron" class="content">
-                    <h2>Oliviolet</h2>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <button onclick="copyToClipboard('/travel -22 37', this)">🪵</button>
-                            <span>Brakmar</span>
-                        </div>
-                    </div>
-                </div>
+            <h1>Liste des Trajets</h1>
+            <div id="trajet-sections">
+                <!-- Sections des trajets injectées dynamiquement -->
             </div>
         </div>
 
-        <!-- Colonne Almanax -->
+        <!-- Colonne secondaire -->
         <div class="almanax-sidebar">
             <h1>Almanax</h1>
             <div id="almanax-container">
@@ -276,7 +26,5 @@
             </div>
         </div>
     </div>
-
-    <script src="scripts.js"></script>
 </body>
 </html>
