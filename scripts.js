@@ -83,13 +83,21 @@ async function fetchAlmanax() {
             sortedData.forEach(day => {
                 const dayElement = document.createElement('div');
                 dayElement.innerHTML = `
-                    <h2>${new Date(day.date).toLocaleDateString('fr-FR')}</h2>
-                    <p><strong>Bonus :</strong> ${day.bonus.bonus} - ${day.bonus.description}</p>
-                    <p><strong>Offrande :</strong> ${day.item_quantity} x 
-                        ${day.item_name}
-                    </p>
-                    <p><strong>Kamas reçus :</strong> ${day.reward_kamas}</p>
-                    <img src="${day.item.image_url}" alt="${day.item_name}">
+                    <div class="almanax-card">
+                        <div class="almanax-header">
+                            <h2>${new Date(day.date).toLocaleDateString('fr-FR')}</h2>
+                        </div>
+                        <div class="almanax-content">
+                            <p><strong>Bonus :</strong> ${day.bonus.bonus} - ${day.bonus.description}</p>
+                            <p><strong>Offrande :</strong> ${day.item_quantity} x 
+                                ${day.item_name}
+                            </p>
+                            <p><strong>Kamas reçus :</strong> ${day.reward_kamas}</p>
+                        </div>
+                        <div class="almanax-image">
+                            <img src="${day.item.image_url}" alt="${day.item_name}">
+                        </div>
+                    </div><br />
                 `;
                 container.appendChild(dayElement);
             });
@@ -118,13 +126,21 @@ async function fetchAlmanaxTotal() {
             sortedData.forEach(day => {
                 const dayElement = document.createElement('div');
                 dayElement.innerHTML = `
-                    <h2>${new Date(day.date).toLocaleDateString('fr-FR')}</h2>
-                    <p><strong>Bonus :</strong> ${day.bonus.bonus} - ${day.bonus.description}</p>
-                    <p><strong>Offrande :</strong> ${day.item_quantity} x 
-                        ${day.item_name}
-                    </p>
-                    <p><strong>Kamas reçus :</strong> ${day.reward_kamas}</p>
-                    <img src="${day.item.image_url}" alt="${day.item_name}">
+                    <div class="almanax-card">
+                        <div class="almanax-header">
+                            <h2>${new Date(day.date).toLocaleDateString('fr-FR')}</h2>
+                        </div>
+                        <div class="almanax-image">
+                            <img src="${day.item.image_url}" alt="${day.item_name}">
+                        </div>
+                        <div class="almanax-content">
+                            <p><strong>Bonus :</strong> ${day.bonus.bonus} - ${day.bonus.description}</p>
+                            <p><strong>Offrande :</strong> ${day.item_quantity} x 
+                                ${day.item_name}
+                            </p>
+                            <p><strong>Kamas reçus :</strong> ${day.reward_kamas}</p>
+                        </div>
+                    </div><br />
                 `;
                 containerTotal.appendChild(dayElement);
             });
