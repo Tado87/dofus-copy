@@ -18,6 +18,11 @@ body {
     width: 70%;
     padding: 20px;
     box-sizing: border-box;
+    margin: 10px;
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .section-container {
@@ -95,6 +100,9 @@ h1, h2 {
     padding: 20px;
     background-color: #222;
     border-left: 1px solid #444;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .almanax-sidebar h1 {
@@ -144,11 +152,25 @@ h1, h2 {
 }
 
 /* En-tête */
+
+/* En-tête */
+.almanax-header{
+    display: flex; /* Active Flexbox pour aligner l'image et la date */
+    align-items: center; /* Centre verticalement */
+    gap: 10px; /* Espace entre l'image et la date */
+    margin-bottom: 10px;    
+}
+
 .almanax-header h2 {
     color: #00bfff;
-    margin-bottom: 10px;
     font-size: 24px;
 }
+
+.icon {
+    width: 75px; /* Taille de l'image */
+    height: 75px;
+}
+
 
 /* Contenu */
 .almanax-content p {
