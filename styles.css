@@ -100,3 +100,35 @@ h1, h2 {
 .almanax-sidebar h1 {
     color: #28a745;
 }
+
+/* Style du menu */
+.menu {
+    background-color: #222;
+    border-bottom: 1px solid #444;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu li {
+    display: inline;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #00bfff; /* Bleu */
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #28a745; /* Vert */
+}

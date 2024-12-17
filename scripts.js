@@ -105,7 +105,7 @@ fetchAlmanax();
 
 async function fetchAlmanaxTotal() {
     const containerTotal = document.getElementById('almanax-total');
-    container.innerHTML = '';
+    containerTotal.innerHTML = '';
 
     try {
         const response = await fetch('https://alm.dofusdu.de/dofus/fr/ahead/15');
@@ -126,7 +126,7 @@ async function fetchAlmanaxTotal() {
                     <p><strong>Kamas reçus :</strong> ${day.reward_kamas}</p>
                     <img src="${day.item.image_url}" alt="${day.item_name}">
                 `;
-                container.appendChild(dayElement);
+                containerTotal.appendChild(dayElement);
             });
         } else {
             containerTotal.innerHTML = '<p>Aucune donnée disponible pour l\'Almanax.</p>';
