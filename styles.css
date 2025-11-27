@@ -18,6 +18,11 @@ body {
     width: 70%;
     padding: 20px;
     box-sizing: border-box;
+    margin: 10px;
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .section-container {
@@ -95,8 +100,9 @@ h1, h2 {
     padding: 20px;
     background-color: #222;
     border-left: 1px solid #444;
-    box-sizing: border-box;
-    overflow-y: auto;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .almanax-sidebar h1 {
@@ -157,16 +163,24 @@ h1, h2 {
 /* En-tête */
 .almanax-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
 .almanax-header h2 {
     color: #00bfff;
     margin: 0;
     font-size: 24px;
+    flex: 1;
 }
+
+.almanax-header .icon {
+    width: 75px;
+    height: 75px;
+    flex-shrink: 0;
+}
+
 
 /* Contenu */
 .almanax-content p {
@@ -178,18 +192,3 @@ h1, h2 {
     color: #28a745;
 }
 
-/* Image */
-.almanax-header-image {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-}
-
-.almanax-image img {
-    width: 70%;
-    height: auto;
-    margin-top: 15px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}

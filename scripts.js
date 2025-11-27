@@ -86,7 +86,7 @@ async function fetchAlmanax() {
                     <div class="almanax-card">
                         <div class="almanax-header">
                             <h2>${new Date(day.date).toLocaleDateString('fr-FR')}</h2>
-                            <img class="almanax-header-image" src="${day.item.image_url}" alt="${day.item_name}">
+                            <img src="${day.item.image_url}" alt="${day.item_name}" class="icon">
                         </div>
                         <div class="almanax-content">
                             <p><strong>Bonus :</strong> ${day.bonus.bonus} - ${day.bonus.description}</p>
@@ -127,7 +127,7 @@ async function fetchAlmanaxTotal() {
                     <div class="almanax-card">
                         <div class="almanax-header">
                             <h2>${new Date(day.date).toLocaleDateString('fr-FR')}</h2>
-                            <img class="almanax-header-image" src="${day.item.image_url}" alt="${day.item_name}">
+                            <img src="${day.item.image_url}" alt="${day.item_name}" class="icon">
                         </div>
                         <div class="almanax-content">
                             <p><strong>Bonus :</strong> ${day.bonus.bonus} - ${day.bonus.description}</p>
