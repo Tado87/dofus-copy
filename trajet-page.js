@@ -29,6 +29,12 @@ const jobsData = {
         "Pin": ["Pin_Albuera.png"],
         "Tremble": ["chemin_tremble2.png"],
         "Autres": ["unknown.png"]
+    },
+    "Paysan": {
+        "Frostiz": ["frostiz.png"],
+        "Lin": ["Champs_Lin.png", "Coin_Lin.png", "Scara_Lin.png"],
+        "Malt": ["Champs_Malt.png", "Coin_Malt.png", "Scara_Malt.png"],
+        "Quisnoa": ["Quisnoa.png"]
     }
 };
 
@@ -37,7 +43,8 @@ let selectedJob = null;
 // Mapping entre le nom affiché et le nom du dossier
 const jobFolderNames = {
     "Alchimiste": "Alchimiste",
-    "Bûcheron": "Bucheron"
+    "Bûcheron": "Bucheron",
+    "Paysan": "Paysan"
 };
 
 $(document).ready(function() {
