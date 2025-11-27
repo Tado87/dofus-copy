@@ -86,18 +86,16 @@ async function fetchAlmanax() {
                     <div class="almanax-card">
                         <div class="almanax-header">
                             <h2>${new Date(day.date).toLocaleDateString('fr-FR')}</h2>
+                            <img class="almanax-header-image" src="${day.item.image_url}" alt="${day.item_name}">
                         </div>
                         <div class="almanax-content">
                             <p><strong>Bonus :</strong> ${day.bonus.bonus} - ${day.bonus.description}</p>
-                            <p><strong>Offrande :</strong> ${day.item_quantity} x 
+                            <p><strong>Offrande :</strong> ${day.item_quantity} x
                                 ${day.item_name}
                             </p>
                             <p><strong>Kamas reçus :</strong> ${day.reward_kamas}</p>
                         </div>
-                        <div class="almanax-image">
-                            <img src="${day.item.image_url}" alt="${day.item_name}">
-                        </div>
-                    </div><br />
+                    </div>
                 `;
                 container.appendChild(dayElement);
             });
@@ -129,18 +127,16 @@ async function fetchAlmanaxTotal() {
                     <div class="almanax-card">
                         <div class="almanax-header">
                             <h2>${new Date(day.date).toLocaleDateString('fr-FR')}</h2>
-                        </div>
-                        <div class="almanax-image">
-                            <img src="${day.item.image_url}" alt="${day.item_name}">
+                            <img class="almanax-header-image" src="${day.item.image_url}" alt="${day.item_name}">
                         </div>
                         <div class="almanax-content">
                             <p><strong>Bonus :</strong> ${day.bonus.bonus} - ${day.bonus.description}</p>
-                            <p><strong>Offrande :</strong> ${day.item_quantity} x 
+                            <p><strong>Offrande :</strong> ${day.item_quantity} x
                                 ${day.item_name}
                             </p>
                             <p><strong>Kamas reçus :</strong> ${day.reward_kamas}</p>
                         </div>
-                    </div><br />
+                    </div>
                 `;
                 containerTotal.appendChild(dayElement);
             });
