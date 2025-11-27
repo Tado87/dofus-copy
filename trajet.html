@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trajets par Métier</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="trajet-page.js" defer></script>
+</head>
+<body>
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="almanax.html">Almanax</a></li>
+            <li><a href="trajet.html">Trajets</a></li>
+        </ul>
+    </nav>
+    <div class="main-container">
+        <div class="main-content" style="width: 100%; margin: 0 auto;">
+            <h1>Trajets par Métier</h1>
+
+            <!-- Sélection du métier -->
+            <div class="job-selection">
+                <h2>Choisir un métier :</h2>
+                <div class="job-buttons">
+                    <button class="job-btn" data-job="Alchimiste">Alchimiste</button>
+                    <button class="job-btn" data-job="Bûcheron">Bûcheron</button>
+                </div>
+            </div>
+
+            <!-- Sélection de la ressource -->
+            <div id="resource-selection" style="display: none; margin-top: 30px;">
+                <h2>Choisir une ressource :</h2>
+                <div id="resource-buttons" class="resource-buttons"></div>
+            </div>
+
+            <!-- Affichage des images -->
+            <div id="images-container" style="display: none; margin-top: 30px;">
+                <h2 id="selected-title"></h2>
+                <div id="images-grid"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
